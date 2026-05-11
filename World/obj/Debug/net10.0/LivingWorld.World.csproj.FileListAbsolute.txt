@@ -1,0 +1,17 @@
+C:\Users\Vladislav\Desktop\Game\src\World\bin\Debug\net10.0\LivingWorld.World.deps.json
+C:\Users\Vladislav\Desktop\Game\src\World\bin\Debug\net10.0\LivingWorld.World.dll
+C:\Users\Vladislav\Desktop\Game\src\World\bin\Debug\net10.0\LivingWorld.World.pdb
+C:\Users\Vladislav\Desktop\Game\src\World\bin\Debug\net10.0\LivingWorld.Core.dll
+C:\Users\Vladislav\Desktop\Game\src\World\bin\Debug\net10.0\LivingWorld.Generation.dll
+C:\Users\Vladislav\Desktop\Game\src\World\bin\Debug\net10.0\LivingWorld.Core.pdb
+C:\Users\Vladislav\Desktop\Game\src\World\bin\Debug\net10.0\LivingWorld.Generation.pdb
+C:\Users\Vladislav\Desktop\Game\src\World\obj\Debug\net10.0\LivingWorld.World.csproj.AssemblyReference.cache
+C:\Users\Vladislav\Desktop\Game\src\World\obj\Debug\net10.0\LivingWorld.World.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Vladislav\Desktop\Game\src\World\obj\Debug\net10.0\LivingWorld.World.AssemblyInfoInputs.cache
+C:\Users\Vladislav\Desktop\Game\src\World\obj\Debug\net10.0\LivingWorld.World.AssemblyInfo.cs
+C:\Users\Vladislav\Desktop\Game\src\World\obj\Debug\net10.0\LivingWorld.World.csproj.CoreCompileInputs.cache
+C:\Users\Vladislav\Desktop\Game\src\World\obj\Debug\net10.0\LivingWo.810C9412.Up2Date
+C:\Users\Vladislav\Desktop\Game\src\World\obj\Debug\net10.0\LivingWorld.World.dll
+C:\Users\Vladislav\Desktop\Game\src\World\obj\Debug\net10.0\refint\LivingWorld.World.dll
+C:\Users\Vladislav\Desktop\Game\src\World\obj\Debug\net10.0\LivingWorld.World.pdb
+C:\Users\Vladislav\Desktop\Game\src\World\obj\Debug\net10.0\ref\LivingWorld.World.dll
