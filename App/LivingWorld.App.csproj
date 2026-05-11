@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>12.0</LangVersion>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core\LivingWorld.Core.csproj" />
+    <ProjectReference Include="..\Generation\LivingWorld.Generation.csproj" />
+    <ProjectReference Include="..\Simulation\LivingWorld.Simulation.csproj" />
+    <ProjectReference Include="..\World\LivingWorld.World.csproj" />
+    <ProjectReference Include="..\Rendering\LivingWorld.Rendering.csproj" />
+    <ProjectReference Include="..\Validation\LivingWorld.Validation.csproj" />
+    <!-- <ProjectReference Include="..\Debug\LivingWorld.Debug.csproj" /> -->
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Raylib-cs" Version="6.1.0" />
+  </ItemGroup>
+</Project>

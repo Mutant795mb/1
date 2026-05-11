@@ -1,0 +1,11 @@
+C:\Users\Vladislav\Desktop\Game\src\Core\bin\Debug\net10.0\LivingWorld.Core.deps.json
+C:\Users\Vladislav\Desktop\Game\src\Core\bin\Debug\net10.0\LivingWorld.Core.dll
+C:\Users\Vladislav\Desktop\Game\src\Core\bin\Debug\net10.0\LivingWorld.Core.pdb
+C:\Users\Vladislav\Desktop\Game\src\Core\obj\Debug\net10.0\LivingWorld.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Vladislav\Desktop\Game\src\Core\obj\Debug\net10.0\LivingWorld.Core.AssemblyInfoInputs.cache
+C:\Users\Vladislav\Desktop\Game\src\Core\obj\Debug\net10.0\LivingWorld.Core.AssemblyInfo.cs
+C:\Users\Vladislav\Desktop\Game\src\Core\obj\Debug\net10.0\LivingWorld.Core.csproj.CoreCompileInputs.cache
+C:\Users\Vladislav\Desktop\Game\src\Core\obj\Debug\net10.0\LivingWorld.Core.dll
+C:\Users\Vladislav\Desktop\Game\src\Core\obj\Debug\net10.0\refint\LivingWorld.Core.dll
+C:\Users\Vladislav\Desktop\Game\src\Core\obj\Debug\net10.0\LivingWorld.Core.pdb
+C:\Users\Vladislav\Desktop\Game\src\Core\obj\Debug\net10.0\ref\LivingWorld.Core.dll
