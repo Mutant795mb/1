@@ -1,0 +1,73 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "LivingWorld.Simulation/1.0.0": {
+        "dependencies": {
+          "LivingWorld.Core": "1.0.0",
+          "LivingWorld.World": "1.0.0"
+        },
+        "runtime": {
+          "LivingWorld.Simulation.dll": {}
+        }
+      },
+      "LivingWorld.Core/1.0.0": {
+        "runtime": {
+          "LivingWorld.Core.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "LivingWorld.Generation/1.0.0": {
+        "dependencies": {
+          "LivingWorld.Core": "1.0.0"
+        },
+        "runtime": {
+          "LivingWorld.Generation.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "LivingWorld.World/1.0.0": {
+        "dependencies": {
+          "LivingWorld.Core": "1.0.0",
+          "LivingWorld.Generation": "1.0.0"
+        },
+        "runtime": {
+          "LivingWorld.World.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "LivingWorld.Simulation/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "LivingWorld.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "LivingWorld.Generation/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "LivingWorld.World/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

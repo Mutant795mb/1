@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "P9tRjGIHUog=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Vladislav\\Desktop\\Game\\src\\Rendering\\LivingWorld.Rendering.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Vladislav\\.nuget\\packages\\raylib-cs\\6.1.0\\raylib-cs.6.1.0.nupkg.sha512"
+  ],
+  "logs": []
+}
