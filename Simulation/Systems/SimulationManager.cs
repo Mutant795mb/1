@@ -18,6 +18,13 @@ public class SimulationManager : IWorldModule
     public string Name => "Simulation Manager";
     public bool IsInitialized => _isInitialized;
     
+    // Fixed timestep configuration
+    private const float FixedDeltaTime = 1f / 60f; // 60 updates per second
+    private float _accumulator = 0f;
+    
+    // Entity pooling - avoid allocations in hot path
+    private readonly List<IEntity> _activeEntities = new();
+    
     public SimulationManager(WorldContext context)
     {
         _context = context;
@@ -60,12 +67,24 @@ public class SimulationManager : IWorldModule
     {
         if (!_isInitialized) return;
         
-        _context.DeltaTime = deltaTime;
-        _context.SimulationTime += deltaTime;
+        // Accumulate time and run fixed timestep updates
+        _accumulator += deltaTime / 1000f; // Convert ms to seconds
+        
+        while (_accumulator >= FixedDeltaTime)
+        {
+            RunFixedUpdate(FixedDeltaTime);
+            _accumulator -= FixedDeltaTime;
+        }
+    }
+    
+    private void RunFixedUpdate(float fixedDeltaTime)
+    {
+        _context.DeltaTime = fixedDeltaTime;
+        _context.SimulationTime += fixedDeltaTime;
         
         foreach (var system in _systems)
         {
-            system.Update(deltaTime, _context);
+            system.Update(fixedDeltaTime, _context);
         }
     }
     
@@ -77,9 +96,13 @@ public class SimulationManager : IWorldModule
         {
             if (system is SettlementSimulationSystem settlementSystem)
             {
-                foreach (var settlement in settlementSystem.Settlements.Where(s => s.IsActive))
+                // Use the pre-allocated buffer from the system instead of LINQ
+                foreach (var settlement in settlementSystem.Settlements)
                 {
-                    DrawSettlement(settlement, camera);
+                    if (settlement.IsActive)
+                    {
+                        DrawSettlement(settlement, camera);
+                    }
                 }
             }
         }
@@ -160,6 +183,9 @@ public class EntitySimulationSystem : ISimulationSystem
     public bool IsInitialized { get; private set; }
     public int Priority => 10;
     
+    // Pre-allocated list to avoid allocations in hot path
+    private readonly List<IEntity> _activeEntitiesBuffer = new();
+    
     public void Initialize() => IsInitialized = true;
     public void Shutdown() => IsInitialized = false;
     
@@ -167,9 +193,20 @@ public class EntitySimulationSystem : ISimulationSystem
     {
         if (!IsInitialized) return;
         
+        // Clear buffer without allocation
+        _activeEntitiesBuffer.Clear();
+        
+        // Collect active entities without LINQ allocation
+        foreach (var entity in context.Entities)
+        {
+            if (entity.IsActive)
+            {
+                _activeEntitiesBuffer.Add(entity);
+            }
+        }
+        
         // Update all entities
-        var entities = context.Entities.Where(e => e.IsActive).ToList();
-        foreach (var entity in entities)
+        foreach (var entity in _activeEntitiesBuffer)
         {
             entity.Update(deltaTime);
         }
@@ -207,6 +244,9 @@ public class SettlementSimulationSystem : ISimulationSystem
     
     private readonly List<Settlement> _settlements = new();
     
+    // Pre-allocated buffer to avoid allocations in hot path
+    private readonly List<Settlement> _activeSettlementsBuffer = new();
+    
     public IReadOnlyList<Settlement> Settlements => _settlements.AsReadOnly();
     
     public void Initialize() => IsInitialized = true;
@@ -220,8 +260,20 @@ public class SettlementSimulationSystem : ISimulationSystem
     {
         if (!IsInitialized || context.World == null) return;
         
+        // Clear buffer without allocation
+        _activeSettlementsBuffer.Clear();
+        
+        // Collect active settlements without LINQ allocation
+        foreach (var settlement in _settlements)
+        {
+            if (settlement.IsActive)
+            {
+                _activeSettlementsBuffer.Add(settlement);
+            }
+        }
+        
         // Update all settlements
-        foreach (var settlement in _settlements.Where(s => s.IsActive))
+        foreach (var settlement in _activeSettlementsBuffer)
         {
             settlement.Update(deltaTime, context);
         }
