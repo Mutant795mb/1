@@ -7,11 +7,11 @@
     <IsPackable>false</IsPackable>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\src\Core\LivingWorld.Core.csproj" />
-    <ProjectReference Include="..\src\Generation\LivingWorld.Generation.csproj" />
-    <ProjectReference Include="..\src\Simulation\LivingWorld.Simulation.csproj" />
-    <ProjectReference Include="..\src\World\LivingWorld.World.csproj" />
-    <ProjectReference Include="..\src\Validation\LivingWorld.Validation.csproj" />
+    <ProjectReference Include="..\Core\LivingWorld.Core.csproj" />
+    <ProjectReference Include="..\Generation\LivingWorld.Generation.csproj" />
+    <ProjectReference Include="..\Simulation\LivingWorld.Simulation.csproj" />
+    <ProjectReference Include="..\World\LivingWorld.World.csproj" />
+    <ProjectReference Include="..\Validation\LivingWorld.Validation.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />

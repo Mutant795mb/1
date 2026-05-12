@@ -1,12 +1,12 @@
 namespace LivingWorld.Rendering;
 
 using LivingWorld.Simulation;
+using LivingWorld.Simulation.Settlements;
 using System.Collections.Generic;
 
 using LivingWorld.World;
 using LivingWorld.Generation;
 using Raylib_cs;
-using System.Runtime.InteropServices;
 
 /// <summary>
 /// Enhanced interactive world renderer with smooth zoom, pan, and detailed GUI.
@@ -546,11 +546,6 @@ public sealed class UnifiedWorldRenderer
         if (resources.Types == ResourceType.None)
             return new Color(80, 80, 80, 255); // Gray for no resources
         
-        // Draw simulation entities
-        if (_simulation != null)
-        {
-            DrawSimulationEntities(cellRenderSize);
-        }
         // Show dominant resource type
         if (resources.HasResource(ResourceType.Wood) && resources.WoodAmount > 30)
             return new Color(34, 139, 34, 255); // Forest green
@@ -835,8 +830,10 @@ public sealed class UnifiedWorldRenderer
     /// Close the window.
     /// </summary>
     public void CloseWindow() => Raylib.CloseWindow();
-}
 
+    /// <summary>
+    /// Draw simulation entities (settlements, units) on top of the world.
+    /// </summary>
     private void DrawSimulationEntities(int cellSize)
     {
         if (_simulation == null) return;
@@ -858,12 +855,10 @@ public sealed class UnifiedWorldRenderer
             int screenY = (int)(_cameraOffset.Y + entity.Position.Y * cellSize);
             int renderSize = Math.Max(4, cellSize / 2);
             
-            Color entityColor = entity.EntityType switch
+            Color entityColor = entity switch
             {
-                "Settlement" => new Color(255, 165, 0, 255), // Orange
-                "Villager" => new Color(255, 255, 0, 255),   // Yellow
-                "Soldier" => new Color(255, 0, 0, 255),      // Red
-                _ => new Color(200, 200, 200, 255)           // Gray
+                Settlement => new Color(255, 165, 0, 255), // Orange for settlements
+                _ => new Color(200, 200, 200, 255) // Gray for other entities
             };
             
             // Draw entity as circle
